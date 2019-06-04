@@ -58,8 +58,11 @@ export default {
   },
   methods: {
     handleSubmit () {
+      /* $refs引用DOM元素、validate是表单验证器 */
       this.$refs.loginForm.validate((valid) => {
+        //如果有，进行验证
         if (valid) {
+          /* 使用emit向父组件传值 */
           this.$emit('on-success-valid', {
             userName: this.form.userName,
             password: this.form.password
